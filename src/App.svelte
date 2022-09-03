@@ -1,6 +1,8 @@
 <script>
 	import {fade,fly} from 'svelte/transition'
 
+	import {randomStore} from './store'
+
 	export let name;
 
 
@@ -57,6 +59,14 @@
 			{/each
 		}
 	</ul>
+
+	<hr>
+	<h2>STORES CONCEPT</h2>
+
+	<p>{$randomStore}</p>
+
+	<button on:click={()=> randomStore.set(Math.random())}>UPDATE STORE</button>
+
 
 </main>
 
