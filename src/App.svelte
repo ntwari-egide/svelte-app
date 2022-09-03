@@ -3,6 +3,13 @@
 
 	let rando;
 
+	// use effect in svelte, calculate each time app starts
+
+	$: result = Math.round(rando) ? 'Winner' : 'Loser';
+
+	$: firstname = 'Egide'
+	$: phoneNumber = "1234567890"
+
 	function setRando() {
 		rando  = Math.random()
 	}
@@ -14,10 +21,19 @@
 
 	<h2>Random : {rando}</h2>
 
-	<p>{ Math.round(rando) ? 'Winner ': 'Loser '}</p>
+	<h3><strong>My name: {firstname}</strong></h3>
+
+	<p>{ result }</p>
+	<p>{ result }</p>
 
 	<button on:click={setRando}>GENERATE</button>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+	<h2>Value Binding, and dynamic binding</h2>
+	
+	<input type="text" bind:value={firstname}>
+
+	
+
 </main>
 
 <style>
