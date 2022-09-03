@@ -1,7 +1,12 @@
 <script>
+	import {fade,fly} from 'svelte/transition'
+
 	export let name;
 
+
 	let rando;
+
+	let randos = []
 
 	// use effect in svelte, calculate each time app starts
 
@@ -12,6 +17,7 @@
 
 	function setRando() {
 		rando  = Math.random()
+		randos = [...randos, rando]
 	}
 </script>
 
@@ -35,14 +41,22 @@
 	<!-- if rando is less than 100 -->
 
 	{#if rando < 50}
-		<p>Less than 50</p>
+		<p transition:fade>Less than 50</p>
 	{/if}
 
 	<!-- if rando is greater than 100 -->
 
 	{#if rando > 50}
-		<p>Greater than 50</p>
+		<p transition:fly>Greater than 50</p>
 	{/if}
+
+	<ul>
+		{
+			#each randos as rand }
+				<p>{rand}</p>
+			{/each
+		}
+	</ul>
 
 </main>
 
