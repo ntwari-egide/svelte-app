@@ -2,6 +2,7 @@
 	import {fade,fly} from 'svelte/transition'
 
 	import {randomStore} from './store'
+	import Child from './Child.svelte'
 
 	export let name;
 
@@ -9,6 +10,12 @@
 	let rando;
 
 	let randos = []
+
+	let data = {
+		userId: 132132,
+		name: 'John',
+		email: 'John@example.com',
+	}
 
 	// use effect in svelte, calculate each time app starts
 
@@ -67,7 +74,11 @@
 
 	<button on:click={()=> randomStore.set(Math.random())}>UPDATE STORE</button>
 
+	<hr>
 
+	<h2>COMPONENTS</h2>
+
+	<Child {...data} />
 </main>
 
 <style>
