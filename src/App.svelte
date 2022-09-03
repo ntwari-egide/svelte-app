@@ -32,7 +32,17 @@
 	
 	<input type="text" bind:value={firstname}>
 
-	
+	<!-- if rando is less than 100 -->
+
+	{#if rando < 50}
+		<p>Less than 50</p>
+	{/if}
+
+	<!-- if rando is greater than 100 -->
+
+	{#if rando > 50}
+		<p>Greater than 50</p>
+	{/if}
 
 </main>
 
